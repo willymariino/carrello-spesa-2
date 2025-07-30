@@ -66,6 +66,8 @@ function App() {
     setAddedProducts(curr => curr.filter(p => p.name !== cartProduct))
   }
 
+  const totalToPay = addedProducts.reduce((acc, p) => acc + (p.price * p.quantity), 0)
+
   return (
     <>
 
@@ -110,6 +112,8 @@ function App() {
 
 
       ))}
+
+      <h3>Totale da pagare: {totalToPay.toFixed(2)}</h3>
 
     </>
   )
