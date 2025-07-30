@@ -6,7 +6,7 @@
 
 - ## step 2: creare la prima funzionzione **addToCart**
      1) creare lo stato locale dei prodotti aggiunti al carrello con [addedProducts, setAddedProducts]
-     2) controllare se esiste già con .some
+     2) controllare se il prodotto che volevo aggiungere al carrello è già stato aggiunto usando il metodo .some sullo stato locale del carrello
      3) bloccare l'aggiunta di duplicati con **if isProductAlreadyAdded - return**
      4) se esiste già aggiungere l'invocazione di **updateProductQuantity** dentro **isProductAlreadded**
      5) se non c'è aggiungerlo aggiungendo anche la proprietà quantity tramite la variabile **productToAdd**
