@@ -20,6 +20,22 @@ function App() {
   return (
     <>
 
+      {/* ricordarsi che quando faccio un map ci va la tonda e non la graffa*/}
+      {gadgets.map((product, index) => (
+
+        <ul>
+
+          <li key={index}>
+
+            {product.name}: {product.price}€
+
+          </li>
+
+
+        </ul>
+
+      ))}
+
     </>
   )
 }
