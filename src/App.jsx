@@ -2,6 +2,7 @@
 🎯 Obiettivo:
 
 Aggiungi al carrello
+controllo se già presente
 Incrementa quantità
 Rimuovi dal carrello
 Calcola totale
