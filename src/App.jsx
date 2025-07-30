@@ -4,7 +4,7 @@
 Aggiungi al carrello ✅
 controllo se già presente ✅
 Incrementa quantità ✅
-Rimuovi dal carrello
+Rimuovi dal carrello ✅
 Calcola totale
 
 */
@@ -62,6 +62,10 @@ function App() {
 
   }
 
+  const removeProducts = cartProduct => {
+    setAddedProducts(curr => curr.filter(p => p.name !== cartProduct))
+  }
+
   return (
     <>
 
@@ -95,6 +99,10 @@ function App() {
 
           <li key={index}>
             {cartProduct.name}: {cartProduct.price}€ quantità:{cartProduct.quantity}
+
+            <button onClick={() => removeProducts(cartProduct.name)}>
+              rimuovi prodotto
+            </button>
 
           </li>
 
