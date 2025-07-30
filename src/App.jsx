@@ -113,7 +113,7 @@ function App() {
 
       ))}
 
-      <h3>Totale da pagare: {totalToPay.toFixed(2)}</h3>
+      <h3> Cart Total: {totalToPay.toFixed(2)} €</h3>
 
     </>
   )
