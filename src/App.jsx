@@ -1,9 +1,9 @@
 /*
 🎯 Obiettivo:
 
-Aggiungi al carrello
-controllo se già presente
-Incrementa quantità
+Aggiungi al carrello ✅
+controllo se già presente ✅
+Incrementa quantità ✅
 Rimuovi dal carrello
 Calcola totale
 
@@ -27,6 +27,7 @@ function App() {
     const isProductAlreadyAdded = addedProducts.some(p => p.name === gadget.name)
 
     if (isProductAlreadyAdded) {
+      updateCartQuantity(gadget.name)
       return
     }
 
@@ -39,13 +40,34 @@ function App() {
 
   }
 
+  const updateCartQuantity = cartProduct => {
+
+    setAddedProducts(curr => {   // setAddedProducts può ricevere una funzione come parametro, si chiama functional updater in React, e si usa quando Se il nuovo valore dipende dal vecchio, (per esempio qui che devo aggiornare il vecchio stato con il nuovo)
+
+      // se dentro un map ho logica complessa su più righe, come per esempio un if/else, devo usare la graffa, che poi richiede un return
+      return curr.map(p => {
+
+        if (p.name === cartProduct) {
+          return { ...p, quantity: p.quantity + 1 }
+
+        }
+
+        else {
+          return p
+        }
+
+      })
+
+    })
+
+  }
 
   return (
     <>
 
       <h1>available products</h1>
 
-      {/* ricordarsi che quando faccio un map ci va la tonda e non la graffa*/}
+      {/* ricordarsi che quando ritorno direttamente un valore con .map ci va la tonda e non la graffa, quindi non ci va return, perchè la tonda ha return implicito*/}
       {gadgets.map((product, index) => (
 
         <ul>
