@@ -68,6 +68,10 @@ function App() {
 
   const totalToPay = addedProducts.reduce((acc, p) => acc + (p.price * p.quantity), 0)
 
+  const clearCart = () => {  // funzione per svuotare il carrello aggiornando lo stato ad un array vuoto
+    setAddedProducts([])
+  }
+
   return (
     <>
 
@@ -112,6 +116,15 @@ function App() {
 
 
       ))}
+
+      {/* short circuit conditional rendering "mostra il bottone solo SE il carrello NON è vuoto*/}
+      {addedProducts.length > 0 && (
+
+        <button onClick={clearCart}>
+          svuota carrello
+        </button>
+
+      )}
 
       <h3> Cart Total: {totalToPay.toFixed(2)} €</h3>
 
